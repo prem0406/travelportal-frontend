@@ -24,6 +24,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -119,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "travelportal-frontend"
+    }
+  },
+  "defaultProject": "travelportal-frontend",
+  "cli": {
+    "analytics": false
+  }
 }
