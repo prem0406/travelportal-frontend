@@ -5,7 +5,7 @@
 
         <ul class="navbar-nav">
             <li><a *ngIf="basicLoginService.isUserLoggedIn()" routerLink="/home/11" class="nav-link">Home</a></li>
-            <li><a *ngIf="basicLoginService.isUserLoggedIn()" routerLink="/home/tickets/new" class="nav-link">Request Ticket</a></li>
+            <li><a *ngIf="basicLoginService.isUserLoggedIn()" routerLink= {{url}} class="nav-link">Request Ticket</a></li>
         </ul>
 
         <ul class="navbar-nav navbar-collapse justify-content-end">

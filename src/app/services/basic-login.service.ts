@@ -21,6 +21,10 @@ export class BasicLoginService {
     return !(user === null)
   }
 
+  getLoggedUser(): number{
+    return 11;
+  }
+
   logout(){
     sessionStorage.removeItem('authenticaterUser')
   }

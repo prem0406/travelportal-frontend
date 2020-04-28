@@ -14,7 +14,6 @@ export interface TicketRequest {
     expenseBourneBy: string,
     travelApproverName: string
     expectedDuration : string,
-    anyUpperBound: boolean
     upperBound: string,
     additionalDetails : string,
     status: string,

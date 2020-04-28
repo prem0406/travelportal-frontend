@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserDataService } from 'src/app/services/user-data.service';
 import { TicketRequest } from 'src/app/models/ticket-request.interface';
 
@@ -14,7 +14,8 @@ export class UserHomeComponent implements OnInit {
   
 
   constructor(private userDataService: UserDataService,
-    private route: ActivatedRoute) { }
+    private route: ActivatedRoute,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
@@ -33,7 +34,8 @@ export class UserHomeComponent implements OnInit {
   }
 
   editTicket(ticket: TicketRequest){
-    console.log("Ticket Selected: ", ticket)
+    console.log("Ticket Selected: ", ticket);
+    this.router.navigate(['home',this.id,'ticket',ticket.ticketRequestId]);
   }
 
 }

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user.interface';
+import { TicketRequest } from '../models/ticket-request.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -23,5 +24,9 @@ export class UserDataService {
 
   getUserTickets(id: number){
     return this.http.get(`http://localhost:8080//users/${id}/tickets`);
+  }
+
+  createTicketRequest(ticket: TicketRequest, userId: number){
+    return this.http.post(`http://localhost:8080/tickets/${userId}`, ticket);
   }
 }

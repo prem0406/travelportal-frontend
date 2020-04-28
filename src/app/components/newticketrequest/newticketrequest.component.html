@@ -1,1 +1,145 @@
-<p>newticketrequest works!</p>
+<div class="row">
+    <div class="col">
+        <div class="card border-dark mb-3">
+            <div class="card-header">Ticket Requests</div>
+            <div class="card-body text-dark">
+                <div class="card-text">
+                    <form [formGroup]="ticketForm"
+                    (ngSubmit)="onFormSubmit()">
+                        <div class="form-row">
+                          <div class="col-md-4 mb-3">
+                            <label for="requestType">Request Type</label>
+                            <select class="custom-select" id="requestType"  formControlName= "requestType" required>
+                                <option selected disabled value="">Choose...</option>
+                                <option>Travel Tickets</option>
+                                <option>Hotel Stay</option>
+                                <option>visa</option>
+                                <option>Work Permit</option>
+                            </select>
+                            <div class="valid-feedback">
+                              Looks good!
+                            </div>
+                          </div>
+                          <div class="col-md-4 mb-3">
+                            <label for="priority">Priority</label>
+                            <select class="custom-select" id="priority"  formControlName= "priority" required>
+                                <option selected disabled value="">Choose...</option>
+                                <option>Normal</option>
+                                <option>Urgent</option>
+                                <option>Immediate</option>
+                            </select>
+                            <div class="valid-feedback">
+                              Looks good!
+                            </div>
+                          </div>
+                          <div class="col-md-4 mb-3">
+                            <label for="travelCity">Travel City</label>
+                            <select class="custom-select" id="travelCity"  formControlName= "travelCity" required>
+                                <option selected disabled value="">Choose...</option>
+                                <option>Mumbai</option>
+                                <option>Hydrabad</option>
+                                <option>Pune</option>
+                            </select>
+                            <div class="invalid-feedback">
+                              Please choose a username.
+                            </div>
+                          </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-4 mb-3">
+                                <label for="fromLocationCity">From Location City</label>
+                                <select class="custom-select" id="fromLocationCity"  formControlName= "fromLocationCity" required>
+                                    <option selected disabled value="">Choose...</option>
+                                    <option>Gurgaon</option>
+                                    <option>Noida</option>
+                                    <option>Jaipur</option>
+                                </select>
+                                <div class="invalid-feedback">
+                                  Please choose a username.
+                                </div>
+                              </div>
+                              <div class="col-md-4 mb-3">
+                                <label for="travelStartDate">Travel Start Date</label>
+                                <input type="date" class="form-control" id="travelStartDate" formControlName= "travelStartDate" required="required" >
+                                <div class="invalid-feedback">
+                                  Please choose a username.
+                                </div>
+                              </div>
+                              <div class="col-md-4 mb-3">
+                                <label for="travelEndDate">Travel End Date</label>
+                                <input type="date" class="form-control" id="travelEndDate" formControlName= "travelEndDate" required="required" >
+                                <div class="invalid-feedback">
+                                  Please choose a username.
+                                </div>
+                              </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-4 mb-3">
+                                <label for="passportNo">Passport No.</label>
+                                <input type="text" class="form-control" id="passportNo"  formControlName= "passportNo" required>
+                                <div class="invalid-feedback">
+                                  Please choose a username.
+                                </div>
+                              </div>
+                              <div class="col-md-4 mb-3">
+                                <label for="projectName">Project Name</label>
+                                <input type="text" class="form-control" id="projectName" formControlName= "projectName"  required>
+                                <div class="invalid-feedback">
+                                  Please choose a username.
+                                </div>
+                              </div>
+                              <div class="col-md-4 mb-3">
+                                <label for="expenseBourneBy">Expense Bourne By</label>
+                                <input type="text" class="form-control" id="expenseBourneBy"  formControlName= "expenseBourneBy" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid city.
+                                </div>
+                              </div>
+                        </div>
+                        <div class="form-row">
+
+                          <div class="col-md-4 mb-3">
+                            <label for="travelApproverName">Travel Approver Name</label>
+                            <select class="custom-select" id="travelApproverName"  formControlName= "travelApproverName" required>
+                              <option selected disabled value="">Choose...</option>
+                              <option>...</option>
+                            </select>
+                            <div class="invalid-feedback">
+                              Please select a valid state.
+                            </div>
+                          </div>
+                          <div class="col-md-4 mb-3">
+                            <label for="expectedDuration">Expected Duration</label>
+                            <input type="text" class="form-control" id="expectedDuration"  formControlName= "expectedDuration" required>
+                            <div class="invalid-feedback">
+                              Please provide a valid zip.
+                            </div>
+                        </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-md-4 mb-3">
+                                <label for="upperBound">Any Upper Bound?</label>
+                                <input type="text" class="form-control" id="upperBound"  formControlName= "upperBound" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid city.
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="additionalDetails">Additional requestType</label>
+                                <input type="text" class="form-control" id="additionalDetails"  formControlName= "additionalDetails" required>
+                                <div class="invalid-feedback">
+                                    Please provide a valid city.
+                                </div>
+                            </div>                            
+                        </div>
+                        
+                        <button class="btn btn-primary" type="submit">Submit</button>
+                        <button class="btn btn-link">Cancel</button>
+                      </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

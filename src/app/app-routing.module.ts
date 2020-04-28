@@ -15,7 +15,7 @@ const routes: Routes = [
   {path: 'logout', component: LogoutComponent},
   {path: 'home/:id', component: UserHomeComponent},
   {path: 'registration', component: UserRegistrationComponent},
-  {path: 'home/tickets/new', component: NewticketrequestComponent},
+  {path: 'home/:userId/ticket/:ticketId', component: NewticketrequestComponent},
   {path: 'tickets', component: TicketRequestListComponent},
 
   {path: '**', component: ErrorComponent}
