@@ -1,1 +1,28 @@
-<p>login works!</p>
+<div class="card  border-dark mb-3">
+    <div class="card-header">
+      User Login
+    </div>
+    <div class="container">
+        <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+    <div class="card-body">
+        <form [formGroup]="loginForm" (ngSubmit)="handleLogin()">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" id="username" placeholder="Username" formControlName="username">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password">
+              
+            </div>
+            
+            <div class="bottom">
+                <button class="btn btn-primary" type="submit" 
+                >Login</button>
+                <button class="btn btn-link">Cancel</button>
+                <span class="forgot"><a routerLink="/registration">Forgot Password?</a></span>
+            </div>
+        </form>
+    </div>
+   
+  </div>

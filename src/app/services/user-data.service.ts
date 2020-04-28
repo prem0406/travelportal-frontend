@@ -20,4 +20,8 @@ export class UserDataService {
   createUser(user: User){
     return this.http.post("http://localhost:8080/users", user);
   }
+
+  getUserTickets(id: number){
+    return this.http.get(`http://localhost:8080//users/${id}/tickets`);
+  }
 }

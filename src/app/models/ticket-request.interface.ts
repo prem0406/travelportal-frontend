@@ -16,7 +16,8 @@ export interface TicketRequest {
     expectedDuration : string,
     anyUpperBound: boolean
     upperBound: string,
-    additionalDetails : string
+    additionalDetails : string,
+    status: string,
     dateCreated : Date,
     lastUpdated : Date
 }

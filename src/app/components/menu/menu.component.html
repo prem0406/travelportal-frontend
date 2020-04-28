@@ -4,13 +4,13 @@
             Nagarro Travel Portal</a></div>
 
         <ul class="navbar-nav">
-            <li><a  routerLink="/home" class="nav-link">Home</a></li>
-            <li><a  routerLink="/home/tickets/new" class="nav-link">Request Ticket</a></li>
+            <li><a *ngIf="basicLoginService.isUserLoggedIn()" routerLink="/home/11" class="nav-link">Home</a></li>
+            <li><a *ngIf="basicLoginService.isUserLoggedIn()" routerLink="/home/tickets/new" class="nav-link">Request Ticket</a></li>
         </ul>
 
         <ul class="navbar-nav navbar-collapse justify-content-end">
-                <li><a routerLink="/login" class="nav-link">Login</a></li>
-                <li><a routerLink="/logout" class="nav-link">Logout</a></li>
+                <li><a *ngIf="!basicLoginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
+                <li><a *ngIf="basicLoginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Logout</a></li>
         </ul>
     </nav>
 </header>

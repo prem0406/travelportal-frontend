@@ -10,10 +10,10 @@ import { UserRegistrationComponent } from './components/user-registration/user-r
 
 
 const routes: Routes = [
-  {path: '', component: LoginComponent, pathMatch: 'full'},
+  // {path: '', component: LoginComponent, pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'logout', component: LogoutComponent},
-  {path: 'home', component: UserHomeComponent},
+  {path: 'home/:id', component: UserHomeComponent},
   {path: 'registration', component: UserRegistrationComponent},
   {path: 'home/tickets/new', component: NewticketrequestComponent},
   {path: 'tickets', component: TicketRequestListComponent},
