@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { User } from 'src/app/models/user.interface';
 import { UserDataService } from 'src/app/services/user-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-user-registration',
@@ -25,7 +26,8 @@ export class UserRegistrationComponent implements OnInit {
   zipControl: FormControl;
   countryControl: FormControl;
 
-  constructor(private userDataService: UserDataService) { }
+  constructor(private userDataService: UserDataService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.firstNameControl = new FormControl('', [Validators.required]);
@@ -61,7 +63,7 @@ export class UserRegistrationComponent implements OnInit {
   onFormSubmit(){
     this.user = this.userForm.value;
     this.userDataService.createUser(this.user).subscribe(() =>{
-      console.log("Done....")
+      this.router.navigate(['registration','confirmation']);
     });
   }
 

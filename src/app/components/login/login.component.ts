@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { BasicLoginService } from 'src/app/services/basic-login.service';
 import { Router } from '@angular/router';
+import { MenuComponent } from '../menu/menu.component';
 
 
 @Component({
@@ -34,15 +35,20 @@ export class LoginComponent implements OnInit {
 
   handleLogin(){
     const {username, password} = this.loginForm.value;
-    console.log('sent');
-    if(this.basicLoginService.authenticate(username, password)){
-      this.invalidLogin = false;
-      console.log('Trueee');
-      this.router.navigate(['home',11]);
-    } else {
-      this.invalidLogin = true;
-      console.log('Falseee');
-    }
+
+    this.basicLoginService.authenticate(username, password)
+    .subscribe(
+      data => {
+        // console.log(data);
+        this.router.navigate(['home',data.id]);
+        this.invalidLogin = false;
+        // this.menuComponent.changeLoginStatus();
+      },
+      error => {
+        console.log(error)
+        this.invalidLogin = true
+      }
+    )
     
   }
 

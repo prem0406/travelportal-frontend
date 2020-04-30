@@ -27,7 +27,7 @@ export class UserHomeComponent implements OnInit {
   }
 
 
-  handleErrorResponse(error) {
+  handleErrorResponse(error:any) {
     
     console.log('Error getting user tickes ', error);
     console.log('Error getting user tickes ', error.error.message);
