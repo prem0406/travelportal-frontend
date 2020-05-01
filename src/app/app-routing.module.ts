@@ -8,6 +8,7 @@ import { NewticketrequestComponent } from './components/newticketrequest/newtick
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
 import { UserRegistrationConfirmationComponent } from './components/user-registration-confirmation/user-registration-confirmation.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { PasswordChangeComponent } from './components/password-change/password-change.component';
 
 
 const routes: Routes = [
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'registration/confirmation', component: UserRegistrationConfirmationComponent},
   {path: 'home/:userId/ticket/:ticketId', component: NewticketrequestComponent},
   {path: 'forgotpassword', component: ForgotPasswordComponent},
+  {path: 'passwordchange', component: PasswordChangeComponent},
 
   {path: '**', component: ErrorComponent}
 ];

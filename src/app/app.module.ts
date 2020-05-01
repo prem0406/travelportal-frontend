@@ -16,6 +16,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { UserRegistrationConfirmationComponent } from './components/user-registration-confirmation/user-registration-confirmation.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
+import { PasswordChangeComponent } from './components/password-change/password-change.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { ForgotPasswordComponent } from './components/forgot-password/forgot-pas
     NewticketrequestComponent,
     UserRegistrationComponent,
     UserRegistrationConfirmationComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    PasswordChangeComponent
   ],
   imports: [
     BrowserModule,
