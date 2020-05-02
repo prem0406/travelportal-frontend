@@ -6,7 +6,7 @@ export interface TicketRequest {
     requestType: string,
     priority: string,
     travelCity: string,
-    fromLocationCity: string,
+    fromCityLocation: string,
     travelStartDate : Date,
     travelEndDate : Date,
     passportNo :string,

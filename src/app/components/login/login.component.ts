@@ -45,7 +45,11 @@ export class LoginComponent implements OnInit {
         // this.menuComponent.changeLoginStatus();
       },
       error => {
-        console.log(error)
+        if(error.status == 0){
+          this.errorMessage = "Server is Down!"
+        } else if (error.status == 401) {
+          this.errorMessage= 'Invalid Credentials';
+        }
         this.invalidLogin = true
       }
     )

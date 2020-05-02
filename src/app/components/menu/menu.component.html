@@ -6,6 +6,7 @@
         <ul class="navbar-nav">
             <li><a *ngIf="basicLoginService.isUserLoggedIn()" [routerLink]="['/home', basicLoginService.getLoggedUser()]" class="nav-link">Home</a></li>
             <li><a *ngIf="basicLoginService.isUserLoggedIn()" [routerLink]="['/home', basicLoginService.getLoggedUser(), 'ticket', '-1']" class="nav-link">Request Ticket</a></li>
+            <li><a *ngIf="basicLoginService.isUserLoggedIn()" [routerLink]="['/home', basicLoginService.getLoggedUser(), 'passwordchange']" class="nav-link">Change Password</a></li>
         </ul>
 
         <ul class="navbar-nav navbar-collapse justify-content-end">

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { ForgotPasswordService } from 'src/app/services/forgot-password.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-password-change',
@@ -7,14 +9,18 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   styleUrls: ['./password-change.component.css']
 })
 export class PasswordChangeComponent implements OnInit {
+  userId: number;
+  errorMessage: string;
   passwordForm : FormGroup;
 
   passwordControl : FormControl;
   confirmPasswordControl : FormControl;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute,
+    private passwordService: ForgotPasswordService) { }
 
   ngOnInit(): void {
+    this.userId = this.route.snapshot.params['userId'];
 
     this.passwordControl = new FormControl('', [Validators.required]);
     this.confirmPasswordControl = new FormControl('', [Validators.required]);
@@ -28,6 +34,24 @@ export class PasswordChangeComponent implements OnInit {
 
   onFormSubmit(){
     console.log('clicked')
+    const {password, confirmPassword} = this.passwordForm.value;
+    console.log(password);
+    //if both passwords are same then
+    this.passwordService.passwordChange(this.userId, password).subscribe(
+      data=>this.handleSuccess(data), 
+      error => this.handleError(error)
+      );
+
+  }
+
+  handleSuccess(data: any){
+    console.log(data.message);
+    this.errorMessage = "Password Changed Successfully!"
+  }
+
+  handleError(error: any){
+    console.log(error);
+    this.errorMessage = "Something Went Wrong! Contact Support Team."
   }
 
 }

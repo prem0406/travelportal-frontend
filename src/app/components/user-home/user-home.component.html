@@ -16,7 +16,7 @@
         <td>{{ticket.status}}</td>
         <td>
 
-            <span class="edit" (click)="editTicket(ticket)">
+            <span *ngIf="ticket.status == 'SUBMITTED'; else notApplicable" class="edit" (click)="editTicket(ticket)">
                 <i class="far fa-edit"></i>
             </span>
 
@@ -24,3 +24,7 @@
       </tr>
     </tbody>
   </table>
+
+  <ng-template #notApplicable>
+    <span>N/A</span>
+  </ng-template>

@@ -13,4 +13,8 @@ export class ForgotPasswordService {
   getRecoveryUsingEmail(email: Email){
     return this.http.post(`${API_URL}/forgot`,email);
   }
+
+  passwordChange(id: number, newPassword: string){
+    return this.http.post(`${API_URL}/passwordchange`,{id, newPassword});
+  }
 }

@@ -21,7 +21,6 @@ export class UserHomeComponent implements OnInit {
     this.id = this.route.snapshot.params['id'];
     this.userDataService.getUserTickets(this.id).subscribe((res: TicketRequest[]) => {
       this.ticketRequests = res;
-      console.log(this.ticketRequests)
     }, error => this.handleErrorResponse(error)
     );
   }
@@ -30,11 +29,9 @@ export class UserHomeComponent implements OnInit {
   handleErrorResponse(error:any) {
     
     console.log('Error getting user tickes ', error);
-    console.log('Error getting user tickes ', error.error.message);
   }
 
   editTicket(ticket: TicketRequest){
-    console.log("Ticket Selected: ", ticket);
     this.router.navigate(['home',this.id,'ticket',ticket.ticketRequestId]);
   }
 

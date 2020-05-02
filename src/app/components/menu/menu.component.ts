@@ -18,8 +18,8 @@ export class MenuComponent implements OnInit {
     this.homeUrl = `/home/${this.userId}`;
   }
 
-  changeLoginStatus(){
+  // changeLoginStatus(){
     
-  }
+  // }
 
 }

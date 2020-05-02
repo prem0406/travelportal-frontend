@@ -20,7 +20,7 @@ const routes: Routes = [
   {path: 'registration/confirmation', component: UserRegistrationConfirmationComponent},
   {path: 'home/:userId/ticket/:ticketId', component: NewticketrequestComponent},
   {path: 'forgotpassword', component: ForgotPasswordComponent},
-  {path: 'passwordchange', component: PasswordChangeComponent},
+  {path: 'home/:userId/passwordchange', component: PasswordChangeComponent},
 
   {path: '**', component: ErrorComponent}
 ];
