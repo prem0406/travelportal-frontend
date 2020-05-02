@@ -12,3 +12,7 @@
     color: blue;
     cursor: pointer;
 }
+
+input.ng-invalid.ng-touched{
+    border-color: red;
+}

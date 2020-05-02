@@ -34,10 +34,10 @@ export class UserRegistrationComponent implements OnInit {
     this.lastNameControl = new FormControl('', [Validators.required]);
     this.businessUnitControl = new FormControl('', [Validators.required]);
     this.titleControl = new FormControl('', [Validators.required]);
-    this.emailControl = new FormControl('', [Validators.required]);
-    this.telephoneControl = new FormControl('', [Validators.required]);
+    this.emailControl = new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(nagarro)\.com$')]);
+    this.telephoneControl = new FormControl('', [Validators.required, Validators.maxLength(15), Validators.pattern('^\\+(?=.{15})\\d{10,15}_{0,5}$')]);
     this.address1Control = new FormControl('', [Validators.required]);
-    this.address2Control = new FormControl('', [Validators.required]);
+    this.address2Control = new FormControl('');
     this.cityControl = new FormControl('', [Validators.required]);
     this.stateControl = new FormControl('', [Validators.required]);
     this.zipControl = new FormControl('', [Validators.required]);

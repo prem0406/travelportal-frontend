@@ -9,69 +9,84 @@
                         <div class="form-row">
                           <div class="col-md-4 mb-3">
                             <label for="firstName">First name</label>
-                            <input type="text" class="form-control" id="firstName" formControlName= "firstName" required>
-                            <div class="valid-feedback">
-                              Looks good!
+                            <input type="text" class="form-control" id="firstName" formControlName= "firstName"
+                            [ngClass]="getControlValidationClasses(firstNameControl)">
+                            <div class="invalid-feedback" *ngIf="firstNameControl.touched && firstNameControl.errors?.required">
+                              This field is required
                             </div>
                           </div>
                           <div class="col-md-4 mb-3">
                             <label for="lastName">Last name</label>
-                            <input type="text" class="form-control" id="lastName"  formControlName= "lastName" required>
-                            <div class="valid-feedback">
-                              Looks good!
+                            <input type="text" class="form-control" id="lastName"  formControlName= "lastName"
+                            [ngClass]="getControlValidationClasses(lastNameControl)">
+                            <div class="invalid-feedback" *ngIf="lastNameControl.touched && lastNameControl.errors?.required">
+                              This field is required
                             </div>
                           </div>
                           <div class="col-md-4 mb-3">
                             <label for="email">Username</label>
-                            <input type="text" class="form-control" id="email" formControlName= "email" required>
-                            <div class="invalid-feedback">
-                              Please choose a username.
+                            <input type="text" class="form-control" id="email" formControlName= "email"
+                            [ngClass]="getControlValidationClasses(emailControl)">
+                            <div class="invalid-feedback" *ngIf="emailControl.touched && emailControl.errors?.required">
+                              This field is required
+                            </div>
+                            <div class="invalid-feedback" *ngIf="emailControl.touched && emailControl.errors?.pattern">
+                              only @nagarro.com is allowed
                             </div>
                           </div>
                         </div>
                         <div class="form-row">
                             <div class="col-md-4 mb-3">
                                 <label for="title">Title</label>
-                                <input type="text" class="form-control" id="title"  formControlName= "title" required>
-                                <div class="invalid-feedback">
-                                  Please choose a username.
+                                <input type="text" class="form-control" id="title"  formControlName= "title"
+                                [ngClass]="getControlValidationClasses(titleControl)">
+                                <div class="invalid-feedback" *ngIf="titleControl.touched && titleControl.errors?.required">
+                                  This field is required
                                 </div>
                               </div>
                               <div class="col-md-4 mb-3">
                                 <label for="businessUnit">Business Unit</label>
-                                <input type="text" class="form-control" id="businessUnit"  formControlName= "businessUnit" required>
-                                <div class="invalid-feedback">
-                                  Please choose a username.
+                                <input type="text" class="form-control" id="businessUnit"  formControlName= "businessUnit" 
+                                [ngClass]="getControlValidationClasses(businessUnitControl)">
+                                <div class="invalid-feedback" *ngIf="businessUnitControl.touched && businessUnitControl.errors?.required">
+                                  This field is required
                                 </div>
                               </div>
                               <div class="col-md-4 mb-3">
                                 <label for="telephone">Telephone</label>
-                                <input type="text" class="form-control" id="telephone"  formControlName= "telephone" required>
-                                <div class="invalid-feedback">
-                                  Please choose a username.
+                                <input type="text" class="form-control" id="telephone"  formControlName= "telephone" 
+                                [ngClass]="getControlValidationClasses(telephoneControl)">
+                                <div class="invalid-feedback" *ngIf="telephoneControl.touched && telephoneControl.errors?.required">
+                                  This field is required
+                                </div>
+                                <div class="invalid-feedback" *ngIf="telephoneControl.touched && telephoneControl.hasError('maxlength')">
+                                  Max. Length is 15
+                                </div>
+                                <div class="invalid-feedback" *ngIf="telephoneControl.touched && telephoneControl.errors?.pattern">
+                                  Invalid Telephone Number
                                 </div>
                               </div>
                         </div>
                         <div class="form-row">
                             <div class="col-md-4 mb-3">
                                 <label for="address1">Address 1</label>
-                                <input type="text" class="form-control" id="address1"  formControlName= "address1" required>
-                                <div class="invalid-feedback">
-                                  Please choose a username.
+                                <input type="text" class="form-control" id="address1"  formControlName= "address1" 
+                                [ngClass]="getControlValidationClasses(address1Control)">
+                                <div class="invalid-feedback" *ngIf="address1Control.touched && address1Control.errors?.required">
+                                  This field is required
                                 </div>
                               </div>
                               <div class="col-md-4 mb-3">
                                 <label for="address2">Address 2</label>
-                                <input type="text" class="form-control" id="address2" formControlName= "address2"  required>
-                                <div class="invalid-feedback">
-                                  Please choose a username.
-                                </div>
+                                <input type="text" class="form-control" id="address2" formControlName= "address2" placeholder="Optional">
+                                
                               </div>
                               <div class="col-md-4 mb-3">
                                 <label for="city">City</label>
-                                <input type="text" class="form-control" id="city"  formControlName= "city" required>
-                                <div class="invalid-feedback">
-                                    Please provide a valid city.
+                                <input type="text" class="form-control" id="city"  formControlName= "city" 
+                                [ngClass]="getControlValidationClasses(cityControl)">
+                                <div class="invalid-feedback" *ngIf="cityControl.touched && cityControl.errors?.required">
+                                  This field is required
                                 </div>
                               </div>
                         </div>
@@ -79,7 +94,8 @@
 
                           <div class="col-md-4 mb-3">
                             <label for="state">State</label>
-                            <select class="custom-select" id="state"  formControlName= "state" required>
+                            <select class="custom-select" id="state"  formControlName= "state" 
+                            [ngClass]="getControlValidationClasses(stateControl)">
                               <option selected disabled value="">Choose...</option>
                               <option>Punjab</option>
                               <option>Haryana</option>
@@ -87,21 +103,23 @@
                               <option>Uttar Pradesh</option>
                               <option>Rajasthan</option>
                             </select>
-                            <div class="invalid-feedback">
-                              Please select a valid state.
+                            <div class="invalid-feedback" *ngIf="stateControl.touched && stateControl.errors?.required">
+                              This field is required
                             </div>
                           </div>
                           <div class="col-md-4 mb-3">
                             <label for="zip">Zip</label>
-                            <input type="text" class="form-control" id="zip"  formControlName= "zip" required>
-                            <div class="invalid-feedback">
-                              Please provide a valid zip.
+                            <input type="text" class="form-control" id="zip"  formControlName= "zip" 
+                            [ngClass]="getControlValidationClasses(zipControl)">
+                            <div class="invalid-feedback" *ngIf="zipControl.touched && zipControl.errors?.required">
+                              This field is required
                             </div>
                           </div>
 
                           <div class="col-md-4 mb-3">
                             <label for="country">Country</label>
-                            <select class="custom-select" id="country"  formControlName= "country" required>
+                            <select class="custom-select" id="country"  formControlName= "country" 
+                            [ngClass]="getControlValidationClasses(countryControl)">
                                 <option selected disabled value="">Choose...</option>
                                 <option>India</option>
                                 <option>U.S.A</option>
@@ -109,13 +127,13 @@
                                 <option>Australia</option>
                                 <option>Germany</option>
                             </select>
-                            <div class="invalid-feedback">
-                              Please provide a valid zip.
+                            <div class="invalid-feedback" *ngIf="countryControl.touched && countryControl.errors?.required">
+                              This field is required
                             </div>
                           </div>
                         </div>
                         
-                        <button class="btn btn-primary" type="submit">Submit</button>
+                        <button class="btn btn-primary" type="submit" [disabled] = "!userForm.valid">Submit</button>
                         <button class="btn btn-link">Cancel</button>
                       </form>
                 </div>

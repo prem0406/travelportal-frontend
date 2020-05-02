@@ -11,6 +11,7 @@ import { TicketRequestService } from 'src/app/services/ticket-request.service';
   styleUrls: ['./newticketrequest.component.css']
 })
 export class NewticketrequestComponent implements OnInit {
+  title: string;
   ticketForm: FormGroup;
   ticketRequest: TicketRequest;
 
@@ -42,6 +43,12 @@ export class NewticketrequestComponent implements OnInit {
     this.userId = this.route.snapshot.params['userId'];
     this.ticketId = this.route.snapshot.params['ticketId'];
 
+    if(this.ticketId == -1){
+      this.title = 'Ticket Requests';
+    } else {
+      this.title = 'Ticket Update';
+
+    }
     
 
     this.requestTypeControl = new FormControl('', [Validators.required]);
@@ -50,13 +57,13 @@ export class NewticketrequestComponent implements OnInit {
     this.fromCityLocationControl = new FormControl('', [Validators.required]);
     this.travelStartDateControl = new FormControl('', [Validators.required]); 
     this.travelEndDateControl = new FormControl('', [Validators.required]);
-    this.passportNoControl = new FormControl('', [Validators.required]);
-    this.projectNameControl = new FormControl('', [Validators.required]);
+    this.passportNoControl = new FormControl('', [Validators.required, Validators.maxLength(25)]);
+    this.projectNameControl = new FormControl('', [Validators.required, Validators.maxLength(100)]);
     this.expenseBourneByControl = new FormControl('', [Validators.required]);
-    this.travelApproverNameControl = new FormControl('', [Validators.required]);
-    this.expectedDurationControl = new FormControl('', [Validators.required]);
-    this.upperBoundControl = new FormControl('', [Validators.required]);
-    this.additionalDetailsControl = new FormControl('', [Validators.required]);
+    this.travelApproverNameControl = new FormControl('',[Validators.maxLength(100)]);
+    this.expectedDurationControl = new FormControl('', [Validators.maxLength(100)]);
+    this.upperBoundControl = new FormControl('', [Validators.maxLength(500)]);
+    this.additionalDetailsControl = new FormControl('', [Validators.required, Validators.maxLength(1000)]);
 
     this.ticketForm = new FormGroup({
       requestType : this.requestTypeControl,
@@ -141,6 +148,13 @@ export class NewticketrequestComponent implements OnInit {
     if (month.length < 2) month = '0' + month;
     if (day.length < 2) day = '0' + day;
     return [year, month, day].join('-');
+  }
+
+  getControlValidationClasses(control: FormControl) {
+    return {
+      'is-invalid': control.touched && control.invalid,
+      'is-valid': control.touched && control.valid
+    };
   }
 
 }

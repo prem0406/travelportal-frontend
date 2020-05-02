@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    this.usernameControl =  new FormControl('', [Validators.required]);
+    this.usernameControl =  new FormControl('', [Validators.required, Validators.email]);
     this.passwordControl =  new FormControl('', [Validators.required]);
 
     this.loginForm = new FormGroup({
@@ -54,6 +54,13 @@ export class LoginComponent implements OnInit {
       }
     )
     
+  }
+
+  getControlValidationClasses(control: FormControl) {
+    return {
+      'is-invalid': control.touched && control.invalid,
+      'is-valid': control.touched && control.valid
+    };
   }
 
 }

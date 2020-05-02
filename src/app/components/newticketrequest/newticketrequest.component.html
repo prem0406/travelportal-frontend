@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col">
         <div class="card border-dark mb-3">
-            <div class="card-header">Ticket Requests</div>
+            <div class="card-header">{{title}}</div>
             <div class="card-body text-dark">
                 <div class="card-text">
                     <form [formGroup]="ticketForm"
@@ -9,129 +9,159 @@
                         <div class="form-row">
                           <div class="col-md-4 mb-3">
                             <label for="requestType">Request Type</label>
-                            <select class="custom-select" id="requestType"  formControlName= "requestType" required>
+                            <select class="custom-select" id="requestType"  formControlName= "requestType" 
+                            [ngClass]="getControlValidationClasses(requestTypeControl)">
                                 <option selected disabled value="">Choose...</option>
                                 <option>Travel Tickets</option>
                                 <option>Hotel Stay</option>
                                 <option>Visa</option>
                                 <option>Work Permit</option>
                             </select>
-                            <div class="valid-feedback">
-                              Looks good!
+                            <div class="invalid-feedback" *ngIf="requestTypeControl.touched && requestTypeControl.errors?.required">
+                              This field is required
                             </div>
                           </div>
                           <div class="col-md-4 mb-3">
                             <label for="priority">Priority</label>
-                            <select class="custom-select" id="priority"  formControlName= "priority" required>
+                            <select class="custom-select" id="priority"  formControlName= "priority" 
+                            [ngClass]="getControlValidationClasses(priorityControl)">
                                 <option selected disabled value="">Choose...</option>
                                 <option>Normal</option>
                                 <option>Urgent</option>
                                 <option>Immediate</option>
                             </select>
-                            <div class="valid-feedback">
-                              Looks good!
+                            <div class="invalid-feedback" *ngIf="priorityControl.touched && priorityControl.errors?.required">
+                              This field is required
                             </div>
                           </div>
                           <div class="col-md-4 mb-3">
                             <label for="travelCity">Travel City</label>
-                            <select class="custom-select" id="travelCity"  formControlName= "travelCity" required>
+                            <select class="custom-select" id="travelCity"  formControlName= "travelCity" required
+                            [ngClass]="getControlValidationClasses(travelCityControl)">
                                 <option selected disabled value="">Choose...</option>
                                 <option>Mumbai</option>
                                 <option>Hydrabad</option>
                                 <option>Pune</option>
                             </select>
-                            <div class="invalid-feedback">
-                              Please choose a username.
+                            <div class="invalid-feedback" *ngIf="travelCityControl.touched && travelCityControl.errors?.required">
+                              This field is required
                             </div>
                           </div>
                         </div>
                         <div class="form-row">
                             <div class="col-md-4 mb-3">
                                 <label for="fromCityLocation">From Location City</label>
-                                <select class="custom-select" id="fromCityLocation"  formControlName= "fromCityLocation" required>
+                                <select class="custom-select" id="fromCityLocation"  formControlName= "fromCityLocation" required
+                                [ngClass]="getControlValidationClasses(fromCityLocationControl)">
                                     <option selected disabled value="">Choose...</option>
                                     <option>Gurgaon</option>
                                     <option>Noida</option>
                                     <option>Jaipur</option>
                                 </select>
-                                <div class="invalid-feedback">
-                                  Please choose a username.
+                                <div class="invalid-feedback" *ngIf="fromCityLocationControl.touched && fromCityLocationControl.errors?.required">
+                                  This field is required
                                 </div>
                               </div>
                               <div class="col-md-4 mb-3">
                                 <label for="travelStartDate">Travel Start Date</label>
-                                <input type="date" class="form-control" id="travelStartDate" formControlName= "travelStartDate" required="required" >
-                                <div class="invalid-feedback">
-                                  Please choose a username.
+                                <input type="date" class="form-control" id="travelStartDate" formControlName= "travelStartDate" 
+                                [ngClass]="getControlValidationClasses(travelStartDateControl)">
+                                <div class="invalid-feedback" *ngIf="travelStartDateControl.touched && travelStartDateControl.errors?.required">
+                                  This field is required
                                 </div>
                               </div>
                               <div class="col-md-4 mb-3">
                                 <label for="travelEndDate">Travel End Date</label>
-                                <input type="date" class="form-control" id="travelEndDate" formControlName= "travelEndDate" required="required" >
-                                <div class="invalid-feedback">
-                                  Please choose a username.
+                                <input type="date" class="form-control" id="travelEndDate" formControlName= "travelEndDate" 
+                                [ngClass]="getControlValidationClasses(travelEndDateControl)">
+                                <div class="invalid-feedback" *ngIf="travelEndDateControl.touched && travelEndDateControl.errors?.required">
+                                  This field is required
                                 </div>
                               </div>
                         </div>
                         <div class="form-row">
                             <div class="col-md-4 mb-3">
                                 <label for="passportNo">Passport No.</label>
-                                <input type="text" class="form-control" id="passportNo"  formControlName= "passportNo" required>
-                                <div class="invalid-feedback">
-                                  Please choose a username.
+                                <input type="text" class="form-control" id="passportNo"  formControlName= "passportNo" 
+                                [ngClass]="getControlValidationClasses(passportNoControl)">
+                                <div class="invalid-feedback" *ngIf="passportNoControl.touched && passportNoControl.errors?.required">
+                                  This field is required
+                                </div>
+                                <div class="invalid-feedback" *ngIf="passportNoControl.touched && passportNoControl.hasError('maxlength')">
+                                  Max. Length is 25
                                 </div>
                               </div>
                               <div class="col-md-4 mb-3">
                                 <label for="projectName">Project Name</label>
-                                <input type="text" class="form-control" id="projectName" formControlName= "projectName"  required>
-                                <div class="invalid-feedback">
-                                  Please choose a username.
+                                <input type="text" class="form-control" id="projectName" formControlName= "projectName" 
+                                [ngClass]="getControlValidationClasses(projectNameControl)">
+                                <div class="invalid-feedback" *ngIf="projectNameControl.touched && projectNameControl.errors?.required">
+                                  This field is required
+                                </div>
+                                <div class="invalid-feedback" *ngIf="projectNameControl.touched && projectNameControl.hasError('maxlength')">
+                                  Max. Length is 100
                                 </div>
                               </div>
                               <div class="col-md-4 mb-3">
-                                <label for="expenseBourneBy">Expense Bourne By</label>
-                                <input type="text" class="form-control" id="expenseBourneBy"  formControlName= "expenseBourneBy" required>
-                                <div class="invalid-feedback">
-                                    Please provide a valid city.
+                                <label>Expense Bourne By</label>
+                                <br>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                  <input type="radio" value="Nagarro" formControlName="expenseBourneBy"
+                                  >
+                                  <label>Nagarro</label>
+                                </div>
+                                <div class="custom-control custom-radio custom-control-inline">
+                                  <input type="radio" value="Client" formControlName="expenseBourneBy"
+                                  >
+                                  <label>Client</label>
+                                </div>
+                                <div class="invalid-feedback" *ngIf="expenseBourneByControl.errors?.required">
+                                  This field is required
                                 </div>
                               </div>
                         </div>
                         <div class="form-row">
 
-                          <div class="col-md-4 mb-3">
+                          <div class="col-md-8 mb-3">
                             <label for="travelApproverName">Travel Approver Name</label>
-                            <input type="text" class="form-control" id="travelApproverName"  formControlName= "travelApproverName" required>
-                             
-                            <div class="invalid-feedback">
-                              Please select a valid state.
+                            <input type="text" class="form-control" id="travelApproverName"  formControlName= "travelApproverName" placeholder="Optional" 
+                            [ngClass]="getControlValidationClasses(travelApproverNameControl)">
+                            <div class="invalid-feedback" *ngIf="travelApproverNameControl.touched && travelApproverNameControl.hasError('maxlength')">
+                              Max. Length is 100
                             </div>
                           </div>
                           <div class="col-md-4 mb-3">
                             <label for="expectedDuration">Expected Duration</label>
-                            <input type="text" class="form-control" id="expectedDuration"  formControlName= "expectedDuration" required>
-                            <div class="invalid-feedback">
-                              Please provide a valid zip.
+                            <input type="text" class="form-control" id="expectedDuration"  formControlName= "expectedDuration" placeholder="Optional" 
+                            [ngClass]="getControlValidationClasses(expectedDurationControl)">
+                            <div class="invalid-feedback" *ngIf="expectedDurationControl.touched && expectedDurationControl.hasError('maxlength')">
+                              Max. Length is 100
                             </div>
                         </div>
                         </div>
                         <div class="form-row">
                             <div class="col-md-4 mb-3">
                                 <label for="upperBound">Any Upper Bound?</label>
-                                <input type="text" class="form-control" id="upperBound"  formControlName= "upperBound" required>
-                                <div class="invalid-feedback">
-                                    Please provide a valid city.
+                                <input type="text" class="form-control" id="upperBound"  formControlName= "upperBound" placeholder="Optional" 
+                                [ngClass]="getControlValidationClasses(expectedDurationControl)">
+                                <div class="invalid-feedback" *ngIf="expectedDurationControl.touched && expectedDurationControl.hasError('maxlength')">
+                                  Max. Length is 500
                                 </div>
                             </div>
-                            <div class="col-md-4 mb-3">
+                            <div class="col-md-8 mb-3">
                                 <label for="additionalDetails">Additional Details</label>
-                                <input type="text" class="form-control" id="additionalDetails"  formControlName= "additionalDetails" required>
-                                <div class="invalid-feedback">
-                                    Please provide a valid city.
+                                <input type="text" class="form-control" id="additionalDetails"  formControlName= "additionalDetails" 
+                                [ngClass]="getControlValidationClasses(additionalDetailsControl)">
+                                <div class="invalid-feedback" *ngIf="additionalDetailsControl.touched && additionalDetailsControl.errors?.required">
+                                  This field is required
+                                </div>
+                                <div class="invalid-feedback" *ngIf="additionalDetailsControl.touched && additionalDetailsControl.hasError('maxlength')">
+                                  Max. Length is additionalDetailsControl
                                 </div>
                             </div>                            
                         </div>
                         
-                        <button class="btn btn-primary" type="submit">Submit</button>
+                        <button class="btn btn-primary" type="submit" [disabled] = "!ticketForm.valid">Submit</button>
                         <button class="btn btn-link">Cancel</button>
                       </form>
                 </div>

@@ -20,7 +20,7 @@ export class ForgotPasswordComponent implements OnInit {
   constructor(private forgotService : ForgotPasswordService) { }
 
   ngOnInit(): void {
-    this.emailControl = new FormControl('', [Validators.required]);
+    this.emailControl = new FormControl('', [Validators.required, Validators.email]);
 
     this.forgotForm = new FormGroup({
       toAddress: this.emailControl
@@ -32,12 +32,18 @@ export class ForgotPasswordComponent implements OnInit {
     this.forgotService.getRecoveryUsingEmail(this.email)
     .subscribe( data => {
       this.alertMessage = 'Email Sent...';
-      console.log('Success...');
     },
     error => {
       this.alertMessage = 'Invalid Email...';
       console.log(error);
     })
+  }
+
+  getControlValidationClasses(control: FormControl) {
+    return {
+      'is-invalid': control.touched && control.invalid,
+      'is-valid': control.touched && control.valid
+    };
   }
 
 }
