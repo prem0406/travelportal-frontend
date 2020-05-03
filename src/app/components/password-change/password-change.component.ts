@@ -37,10 +37,14 @@ export class PasswordChangeComponent implements OnInit {
     const {password, confirmPassword} = this.passwordForm.value;
     console.log(password);
     //if both passwords are same then
-    this.passwordService.passwordChange(this.userId, password).subscribe(
-      data=>this.handleSuccess(data), 
-      error => this.handleError(error)
-      );
+    if(password != confirmPassword){
+      this.errorMessage= 'New Password and Confirm Password must be same'
+    } else {
+        this.passwordService.passwordChange(this.userId, password).subscribe(
+        data=>this.handleSuccess(data), 
+        error => this.handleError(error)
+        );
+    }   
 
   }
 
@@ -54,4 +58,10 @@ export class PasswordChangeComponent implements OnInit {
     this.errorMessage = "Something Went Wrong! Contact Support Team."
   }
 
+  getControlValidationClasses(control: FormControl) {
+    return {
+      'is-invalid': control.touched && control.invalid,
+      'is-valid': control.touched && control.valid
+    };
+  }
 }

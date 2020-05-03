@@ -59,11 +59,11 @@
                                 <div class="invalid-feedback" *ngIf="telephoneControl.touched && telephoneControl.errors?.required">
                                   This field is required
                                 </div>
+                                <div class="invalid-feedback" *ngIf="telephoneControl.touched && telephoneControl.hasError('minlength')">
+                                  Min. Length is 10
+                                </div>
                                 <div class="invalid-feedback" *ngIf="telephoneControl.touched && telephoneControl.hasError('maxlength')">
                                   Max. Length is 15
-                                </div>
-                                <div class="invalid-feedback" *ngIf="telephoneControl.touched && telephoneControl.errors?.pattern">
-                                  Invalid Telephone Number
                                 </div>
                               </div>
                         </div>

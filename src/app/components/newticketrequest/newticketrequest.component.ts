@@ -43,6 +43,7 @@ export class NewticketrequestComponent implements OnInit {
     this.userId = this.route.snapshot.params['userId'];
     this.ticketId = this.route.snapshot.params['ticketId'];
 
+    //update page title according to create/update ticket 
     if(this.ticketId == -1){
       this.title = 'Ticket Requests';
     } else {

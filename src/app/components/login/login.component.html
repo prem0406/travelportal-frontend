@@ -23,7 +23,7 @@
             <div class="form-group">
               <label for="password">Password</label>
               <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password"
-              [ngClass]="getControlValidationClasses(usernameControl)">
+              [ngClass]="getControlValidationClasses(passwordControl)">
               <div class="valid-feedback" *ngIf="passwordControl.valid">
                 Looks good!
               </div>
