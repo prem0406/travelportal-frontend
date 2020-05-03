@@ -1,0 +1,14 @@
+.row{
+    border-bottom: solid 0.125px gray;
+    margin-top: 20px;
+}
+
+#ndiv {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+}
+
+#ndiv label{
+    margin-right: 10px;
+}

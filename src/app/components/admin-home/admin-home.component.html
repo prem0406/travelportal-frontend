@@ -1,0 +1,30 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Ticke ID</th>
+        <th scope="col">Request Type</th>
+        <th scope="col">Submitted Date</th>
+        <th scope="col">Status</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ticket of ticketRequests">
+        <th scope="row">{{ticket.ticketRequestId}}</th>
+        <td>{{ticket.requestType}}</td>
+        <td>{{ticket.dateCreated | date}}</td>
+        <td>{{ticket.status}}</td>
+        <td>
+
+            <span *ngIf="ticket.status != 'APPROVED'; else notApplicable" class="edit" (click)="editTicket(ticket)">
+                <i class="far fa-edit"></i>
+            </span>
+
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <ng-template #notApplicable>
+    <span>N/A</span>
+  </ng-template>

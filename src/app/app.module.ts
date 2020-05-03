@@ -17,6 +17,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { UserRegistrationConfirmationComponent } from './components/user-registration-confirmation/user-registration-confirmation.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { PasswordChangeComponent } from './components/password-change/password-change.component';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { AdminHomeComponent } from './components/admin-home/admin-home.component';
+import { AdminTicketReviewComponent } from './components/admin-ticket-review/admin-ticket-review.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,11 @@ import { PasswordChangeComponent } from './components/password-change/password-c
     UserRegistrationComponent,
     UserRegistrationConfirmationComponent,
     ForgotPasswordComponent,
-    PasswordChangeComponent
+    PasswordChangeComponent,
+    WelcomeComponent,
+    AdminLoginComponent,
+    AdminHomeComponent,
+    AdminTicketReviewComponent
   ],
   imports: [
     BrowserModule,

@@ -10,13 +10,21 @@ import { UserRegistrationConfirmationComponent } from './components/user-registr
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { PasswordChangeComponent } from './components/password-change/password-change.component';
 import { RouteGuardService } from './services/route-guard.service';
+import { WelcomeComponent } from './components/welcome/welcome.component';
+import { AdminLoginComponent } from './components/admin-login/admin-login.component';
+import { AdminHomeComponent } from './components/admin-home/admin-home.component';
+import { AdminTicketReviewComponent } from './components/admin-ticket-review/admin-ticket-review.component';
 
 
 const routes: Routes = [
-  // {path: '', component: LoginComponent, pathMatch: 'full'},
+  {path: '', component: WelcomeComponent, pathMatch: 'full'},
+  // {path: 'welcome', component: WelcomeComponent},
   {path: 'login', component: LoginComponent},
+  {path: 'admin/login', component: AdminLoginComponent},
   {path: 'logout', component: LogoutComponent, canActivate: [RouteGuardService]},
   {path: 'home/:id', component: UserHomeComponent, canActivate: [RouteGuardService]},
+  {path: 'admin/:adminId', component: AdminHomeComponent, canActivate: [RouteGuardService]},
+  {path: 'admin/:adminId/tickets/:ticketId', component: AdminTicketReviewComponent},
   {path: 'registration', component: UserRegistrationComponent},
   {path: 'registration/confirmation', component: UserRegistrationConfirmationComponent},
   {path: 'home/:userId/ticket/:ticketId', component: NewticketrequestComponent, canActivate: [RouteGuardService]},

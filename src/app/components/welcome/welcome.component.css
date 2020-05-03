@@ -1,0 +1,9 @@
+.card{
+    width: 18rem;
+    height: 15rem;
+}
+
+.btn .btn-primary{
+display: flex;
+align-self: baseline;
+}

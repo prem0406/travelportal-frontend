@@ -1,0 +1,99 @@
+<div class="col">
+    <div class="card border-dark mb-3">
+        <div class="card-header">Ticket Request Details</div>
+        <div class="card-body text-dark">
+            <div class="card-text" *ngIf="ticketRequest">
+                <div class="row">
+                    <div class="col-md-2 mb-3">
+                        <label for="requestType">Request Id : <b>{{ticketRequest.ticketRequestId}}</b></label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="requestType">Submitted By : <b>{{ticketRequest.user.email}}</b></label>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="requestType">Request Type : <b>{{ticketRequest.requestType}}</b></label>
+                    </div>
+                    <div class="col-md-2 mb-3">
+                        <label for="requestType">Priority : <b>{{ticketRequest.priority}}</b></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="requestType">Travel City : <b>{{ticketRequest.travelCity}}</b></label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="requestType">From Location City : <b>{{ticketRequest.fromCityLocation}}</b></label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="requestType">Travel Start Date :
+                            <b>{{ticketRequest.travelStartDate | date}}</b></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="requestType">Travel End Date : <b>{{ticketRequest.travelEndDate | date}}</b></label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="requestType">Passport No. : <b>{{ticketRequest.passportNo}}</b></label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="requestType">Expense Bourne By : <b>{{ticketRequest.expenseBourneBy}}</b></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="requestType">Travel Approver Name :
+                            <b>{{ticketRequest.travelApproverName}}</b></label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="requestType">Expected Duration : <b>{{ticketRequest.expectedDuration}}</b></label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="requestType">Upper Bound : <b>{{ticketRequest.upperBound}}</b></label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label for="requestType">Additional Details : <b>{{ticketRequest.additionalDetails}}</b></label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="requestType">Date Created : <b>{{ticketRequest.dateCreated | date}}</b></label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="requestType">Last Updated : <b>{{ticketRequest.lastUpdated | date}}</b></label>
+                    </div>
+                </div>
+
+                <form [formGroup]="ticketForm" (ngSubmit)="onFormSubmit()">
+                    <div class="row">
+                        <div class="col-md-1 mb-3">
+                            <label for="action"><b>Action:</b> </label>
+                        </div>
+
+                        <div class="col-md-2 mb-3">
+                            <select class="custom-select" id="requestType" formControlName="action"
+                                [ngClass]="getControlValidationClasses(actionControl)">
+                                <option selected disabled value="">Choose...</option>
+                                <option>APPROVE</option>
+                                <option>REJECT</option>
+                            </select>
+                            <div class="invalid-feedback"
+                                *ngIf="actionControl.touched && actionControl.errors?.required">
+                                This field is required
+                            </div>
+                        </div>
+                        <div class="col-md-1 mb-3">
+                            <button class="btn btn-primary" type="submit" [disabled] = "!ticketForm.valid"
+                            >Submit</button>
+                        </div>
+                        <div class="col-md-1 mb-3">
+                            <button class="btn btn-secondary" type="button" [routerLink] = "['/admin',adminId]"
+                            >Back</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

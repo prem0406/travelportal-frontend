@@ -1,0 +1,42 @@
+<div class="card  border-dark mb-3">
+    <div class="card-header">
+      Admin Login
+    </div>
+    <div class="container">
+        <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+    <div class="card-body">
+        <form [formGroup]="adminLoginForm" (ngSubmit)="handleLogin()">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" class="form-control" id="username" placeholder="Username" formControlName="username"
+              [ngClass]="getControlValidationClasses(usernameControl)">
+              <div class="valid-feedback" *ngIf="usernameControl.valid">
+                Looks good!
+              </div>
+              <div class="invalid-feedback" *ngIf="usernameControl.touched && usernameControl.errors?.required">
+                This field is required
+              </div>
+              <div class="invalid-feedback" *ngIf="usernameControl.touched && usernameControl.errors?.email">
+               It should be email
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password"
+              [ngClass]="getControlValidationClasses(passwordControl)">
+              <div class="valid-feedback" *ngIf="passwordControl.valid">
+                Looks good!
+              </div>
+              <div class="invalid-feedback" *ngIf="passwordControl.touched && passwordControl.errors?.required">
+                This field is required
+              </div>
+            </div>
+            
+            <div class="bottom">
+                <button class="btn btn-primary" type="submit" [disabled] = "!adminLoginForm.valid" >Login</button>
+            </div>
+
+        </form>
+    </div>
+   
+  </div>
