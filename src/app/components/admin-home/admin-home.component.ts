@@ -22,6 +22,7 @@ export class AdminHomeComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
+    console.log('in Admin Home')
     //this.adminId = this.route.snapshot.params['adminId'];
     this.ticketService.getAllTickets().subscribe((res: TicketRequest[]) => {
       this.ticketRequests = res;

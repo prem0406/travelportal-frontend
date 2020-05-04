@@ -11,7 +11,8 @@ const TOKEN: string= 'token';
   providedIn: 'root'
 })
 export class BasicLoginService {
-  userId: number
+  userId: number;
+  role: string;
 
   constructor(private http: HttpClient) { }
 
@@ -28,16 +29,23 @@ export class BasicLoginService {
             sessionStorage.setItem(AUTHENTICATED_USER, username);
             sessionStorage.setItem(TOKEN, `Bearer ${data.token}`);
             this.userId = data.id;
+            this.role = data.role;
             return data;
           }
         )
       );
   }
 
-  isUserLoggedIn() {
-    let user = sessionStorage.getItem(AUTHENTICATED_USER);
+  isLoggedIn(){
 
+    let user = sessionStorage.getItem(AUTHENTICATED_USER);
+    //console.log('USer.. ',user)
     return !(user === null)
+  }
+
+  isUserLoggedIn() {
+    //console.log('Role...... ',this.role)
+    return this.isLoggedIn && this.role == 'USER';
   }
 
   getAuthenticatedUser() {
@@ -54,6 +62,7 @@ export class BasicLoginService {
   }
 
   logout(){
+    console.log('Logout Service')
     sessionStorage.removeItem(AUTHENTICATED_USER);
     sessionStorage.removeItem(TOKEN);
   }

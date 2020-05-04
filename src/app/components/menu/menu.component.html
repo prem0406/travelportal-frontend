@@ -10,8 +10,8 @@
         </ul>
 
         <ul class="navbar-nav navbar-collapse justify-content-end">
-                <li><a *ngIf="!basicLoginService.isUserLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
-                <li><a *ngIf="basicLoginService.isUserLoggedIn()" routerLink="/logout" class="nav-link">Logout</a></li>
+                <li><a *ngIf="!basicLoginService.isLoggedIn()" routerLink="/login" class="nav-link">Login</a></li>
+                <li><a *ngIf="basicLoginService.isLoggedIn()" routerLink="/logout" class="nav-link">Logout</a></li>
         </ul>
     </nav>
 </header>

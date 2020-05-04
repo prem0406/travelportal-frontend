@@ -9,10 +9,12 @@ import { Router } from '@angular/router';
 })
 export class LogoutComponent implements OnInit {
 
+
   constructor(private basicLoginService: BasicLoginService,
     private router: Router) { }
 
   ngOnInit(): void {
+    console.log('Logout Comp')
     this.basicLoginService.logout();
     this.router.navigate(['login']);
   }
