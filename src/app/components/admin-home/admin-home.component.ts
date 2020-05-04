@@ -9,6 +9,8 @@ import { TicketRequestService } from 'src/app/services/ticket-request.service';
   styleUrls: ['./admin-home.component.css']
 })
 export class AdminHomeComponent implements OnInit {
+  searchText: string;
+  page: number;
 
   ticketRequests : TicketRequest[];
   adminId: number;

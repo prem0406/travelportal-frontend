@@ -13,7 +13,7 @@ import { UserHomeComponent } from './components/user-home/user-home.component';
 import { NewticketrequestComponent } from './components/newticketrequest/newticketrequest.component';
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { UserRegistrationConfirmationComponent } from './components/user-registration-confirmation/user-registration-confirmation.component';
 import { ForgotPasswordComponent } from './components/forgot-password/forgot-password.component';
 import { PasswordChangeComponent } from './components/password-change/password-change.component';
@@ -22,6 +22,8 @@ import { AdminLoginComponent } from './components/admin-login/admin-login.compon
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
 import { AdminTicketReviewComponent } from './components/admin-ticket-review/admin-ticket-review.component';
 import { TicketRequestConfirmationComponent } from './components/ticket-request-confirmation/ticket-request-confirmation.component';
+import {Ng2SearchPipeModule} from 'ng2-search-filter';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,10 @@ import { TicketRequestConfirmationComponent } from './components/ticket-request-
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
+    Ng2SearchPipeModule,
+    NgxPaginationModule
   ],
   providers: [
     // UserDataService,
