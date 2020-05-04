@@ -24,6 +24,7 @@ import { AdminTicketReviewComponent } from './components/admin-ticket-review/adm
 import { TicketRequestConfirmationComponent } from './components/ticket-request-confirmation/ticket-request-confirmation.component';
 import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {SortDirective} from './directives/sort.directive';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     AdminLoginComponent,
     AdminHomeComponent,
     AdminTicketReviewComponent,
-    TicketRequestConfirmationComponent
+    TicketRequestConfirmationComponent,
+    SortDirective
   ],
   imports: [
     BrowserModule,

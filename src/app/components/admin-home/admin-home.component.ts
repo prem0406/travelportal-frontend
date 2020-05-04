@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TicketRequest } from 'src/app/models/ticket-request.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TicketRequestService } from 'src/app/services/ticket-request.service';
+// import {SortDirective} from 'src/app/custom-directives/sort-directive';
 
 @Component({
   selector: 'app-admin-home',

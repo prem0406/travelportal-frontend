@@ -3,19 +3,30 @@
 </div>
 <table class="table">
     <thead>
+      <!-- sortColumn [sortKey]="'ticketRequestId'" -->
       <tr>
-        <th scope="col">Ticke ID</th>
+        <th scope="col" >Ticke ID</th>
+        <th scope="col" class= "sort" sortColumn [sortKey]="'priority'" [data]="ticketRequests">Priority</th>
+        <th scope="col" class= "sort" sortColumn [sortKey]="'dateCreated'" [data]="ticketRequests">Submitted Date</th>
         <th scope="col">Request Type</th>
-        <th scope="col">Submitted Date</th>
-        <th scope="col">Status</th>
+        <th scope="col">Project Name</th>
+        <th scope="col">Business Unit</th>
+        <th scope="col">Submitted By</th>
+        <th scope="col">Travel City</th>
+        <th scope="col" >Status</th>
         <th scope="col">Actions</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let ticket of ticketRequests| filter:searchText | paginate: {itemsPerPage: 10, currentPage: page}">
+      <tr *ngFor="let ticket of ticketRequests| filter:searchText | paginate: {itemsPerPage: 5, currentPage: page}">
         <th scope="row">{{ticket.ticketRequestId}}</th>
-        <td>{{ticket.requestType}}</td>
+        <td>{{ticket.priority}}</td>
         <td>{{ticket.dateCreated | date}}</td>
+        <td>{{ticket.requestType}}</td>
+        <td>{{ticket.projectName}}</td>
+        <td>{{ticket.user.email}}</td>
+        <td>{{ticket.user.businessUnit}}</td>
+        <td>{{ticket.travelCity}}</td>
         <td>{{ticket.status}}</td>
         <td>
 
@@ -27,7 +38,7 @@
       </tr>
     </tbody>
   </table>
-<pagination-controls (pageChange)="page = $event"></pagination-controls>
+<pagination-controls class= "pageno" (pageChange)="page = $event"></pagination-controls>
   <ng-template #notApplicable>
     <span>N/A</span>
   </ng-template>
