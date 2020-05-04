@@ -1,1 +1,18 @@
-<p>user-registration-confirmation works!</p>
+<h3>Registration Conformation Page:</h3>
+<p> Thank You for Registring. The admin will contact you shortly with your username and password.</p>
+ <p> FirstName : {{ userData.firstName }} <br>
+       Last Name :{{userData.lastName}}<br>
+       BusinessUnit :{{userData.businessUnit}}<br>
+       Title : {{ userData.title}}<br>
+       Email : {{userData.email}}<br>
+       Telephone : {{userData.telephone}}<br>
+       Address1 : {{userData.address1}} <br>
+       Address2 : {{userData.address2}} <br>
+       City : {{ userData.city}}   <br>
+       State : {{userData.state}}  <br>
+       Zip :   {{userData.zip}}    <br>
+       Country :  {{userData.country}} <br>
+ 
+       <button (click)="printPage()">print</button>
+       <button (click)="homepage()">Got to homepage </button>
+</p>

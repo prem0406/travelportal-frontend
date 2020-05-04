@@ -21,6 +21,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
 import { AdminTicketReviewComponent } from './components/admin-ticket-review/admin-ticket-review.component';
+import { TicketRequestConfirmationComponent } from './components/ticket-request-confirmation/ticket-request-confirmation.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { AdminTicketReviewComponent } from './components/admin-ticket-review/adm
     WelcomeComponent,
     AdminLoginComponent,
     AdminHomeComponent,
-    AdminTicketReviewComponent
+    AdminTicketReviewComponent,
+    TicketRequestConfirmationComponent
   ],
   imports: [
     BrowserModule,

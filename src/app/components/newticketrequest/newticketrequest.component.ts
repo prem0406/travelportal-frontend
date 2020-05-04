@@ -112,8 +112,9 @@ export class NewticketrequestComponent implements OnInit {
 
   handleSuccess(){
     console.log('ticket uploaded')
-    this.router.navigate(['home',this.userId]);
-
+    //this.router.navigate(['home',this.userId]);
+    this.ticketService.giveTicketData(this.ticketRequest);
+    this.router.navigate(['home',this.userId,'ticketconfirmation']);
   }
 
   handleErrorResponse(error: any) {

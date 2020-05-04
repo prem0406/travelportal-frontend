@@ -14,6 +14,7 @@ import { WelcomeComponent } from './components/welcome/welcome.component';
 import { AdminLoginComponent } from './components/admin-login/admin-login.component';
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
 import { AdminTicketReviewComponent } from './components/admin-ticket-review/admin-ticket-review.component';
+import { TicketRequestConfirmationComponent } from './components/ticket-request-confirmation/ticket-request-confirmation.component';
 
 
 const routes: Routes = [
@@ -28,8 +29,10 @@ const routes: Routes = [
   {path: 'registration', component: UserRegistrationComponent},
   {path: 'registration/confirmation', component: UserRegistrationConfirmationComponent},
   {path: 'home/:userId/ticket/:ticketId', component: NewticketrequestComponent, canActivate: [RouteGuardService]},
+  {path:'home/:userId/ticketconfirmation', component: TicketRequestConfirmationComponent,canActivate: [RouteGuardService]},
   {path: 'forgotpassword', component: ForgotPasswordComponent},
   {path: 'home/:userId/passwordchange', component: PasswordChangeComponent, canActivate: [RouteGuardService]},
+  {path: 'error', component: ErrorComponent},
 
   {path: '**', component: ErrorComponent}
 ];

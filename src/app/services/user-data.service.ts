@@ -8,7 +8,8 @@ import { API_URL } from '../app.constant';
   providedIn: 'root'
 })
 export class UserDataService {
-
+  sentData: User; 
+  
   constructor(private http: HttpClient) { }
 
   createUser(user: User){
@@ -23,10 +24,12 @@ export class UserDataService {
     return this.http.post(`${API_URL}/tickets/${userId}`, ticket);
   }
 
-  //  createBasicAuthenticationHttpHeader() {
-  //   let username = 'user'
-  //   let password = 'password'
-  //   let basicAuthHeaderString = 'Basic ' + window.btoa(username + ':' + password);
-  //   return basicAuthHeaderString;
-  // }
+  
+
+  giveData(user:User):void{
+        this.sentData= user;
+     }
+     getData(){
+       return this.sentData;
+     }
 }

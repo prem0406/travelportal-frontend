@@ -38,7 +38,6 @@ export class AdminLoginComponent implements OnInit {
     this.basicLoginService.authenticate(username, password)
     .subscribe(
       data => {
-        // console.log(data);
         this.router.navigate(['admin',data.id]);
         this.invalidLogin = false;
         // this.menuComponent.changeLoginStatus();

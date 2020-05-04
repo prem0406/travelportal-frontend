@@ -34,7 +34,7 @@ export class UserRegistrationComponent implements OnInit {
     this.lastNameControl = new FormControl('', [Validators.required]);
     this.businessUnitControl = new FormControl('', [Validators.required]);
     this.titleControl = new FormControl('', [Validators.required]);
-    this.emailControl = new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(nagarro)\.com$')]);
+    this.emailControl = new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z0-9_.+-]+@(?:(?:[a-zA-Z0-9-]+\.)?[a-zA-Z]+\.)?(gmail)\.com$')]);
     this.telephoneControl = new FormControl('', [Validators.required, Validators.minLength(10), Validators.maxLength(15)]);
     this.address1Control = new FormControl('', [Validators.required]);
     this.address2Control = new FormControl('');
@@ -63,6 +63,7 @@ export class UserRegistrationComponent implements OnInit {
   onFormSubmit(){
     this.user = this.userForm.value;
     this.userDataService.createUser(this.user).subscribe(() =>{
+      this.userDataService.giveData(this.user);
       this.router.navigate(['registration','confirmation']);
     });
   }

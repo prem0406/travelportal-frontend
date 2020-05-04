@@ -10,9 +10,6 @@
               <label for="username">Username</label>
               <input type="text" class="form-control" id="username" placeholder="Username" formControlName="username"
               [ngClass]="getControlValidationClasses(usernameControl)">
-              <div class="valid-feedback" *ngIf="usernameControl.valid">
-                Looks good!
-              </div>
               <div class="invalid-feedback" *ngIf="usernameControl.touched && usernameControl.errors?.required">
                 This field is required
               </div>
@@ -24,9 +21,6 @@
               <label for="password">Password</label>
               <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password"
               [ngClass]="getControlValidationClasses(passwordControl)">
-              <div class="valid-feedback" *ngIf="passwordControl.valid">
-                Looks good!
-              </div>
               <div class="invalid-feedback" *ngIf="passwordControl.touched && passwordControl.errors?.required">
                 This field is required
               </div>

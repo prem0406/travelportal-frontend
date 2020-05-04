@@ -8,11 +8,12 @@ import { StatusRto } from '../models/status-rto.interface';
   providedIn: 'root'
 })
 export class TicketRequestService {
+  ticketData: TicketRequest; 
 
   constructor(private http: HttpClient) { }
 
   getAllTickets(){
-    return this.http.get(`${API_URL}/tickets`);
+    return this.http.get(`${API_URL}/admin/tickets`);
   }
 
   getTicket(ticketId: number){
@@ -29,5 +30,13 @@ export class TicketRequestService {
 
   changeStatus(statusRto: StatusRto, adminId: number){
     return this.http.put(`${API_URL}/admin/${adminId}/tickets`,statusRto);
+  }
+
+  giveTicketData(ticketRequest:TicketRequest):void{
+    this.ticketData= ticketRequest;
+  }
+  
+  getTicketData():TicketRequest{
+   return  this.ticketData;
   }
 }
