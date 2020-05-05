@@ -10,10 +10,10 @@
               <label for="username">Username</label>
               <input type="text" class="form-control" id="username" placeholder="Username" formControlName="username"
               [ngClass]="getControlValidationClasses(usernameControl)">
-              <div class="invalid-feedback" *ngIf="usernameControl.touched && usernameControl.errors?.required">
+              <div class="invalid-feedback" *ngIf=" usernameControl.errors?.required">
                 This field is required
               </div>
-              <div class="invalid-feedback" *ngIf="usernameControl.touched && usernameControl.errors?.email">
+              <div class="invalid-feedback" *ngIf=" usernameControl.errors?.email">
                It should be email
               </div>
             </div>
@@ -21,13 +21,14 @@
               <label for="password">Password</label>
               <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password"
               [ngClass]="getControlValidationClasses(passwordControl)">
-              <div class="invalid-feedback" *ngIf="passwordControl.touched && passwordControl.errors?.required">
+              <div class="invalid-feedback" *ngIf=" passwordControl.errors?.required">
                 This field is required
               </div>
             </div>
             
             <div class="bottom">
                 <button class="btn btn-primary" type="submit" [disabled] = "!loginForm.valid" >Login</button>
+
                 <button class="btn btn-link"><a routerLink="/registration">Sign Up</a></button>
             </div>
             <span class="forgot"><a routerLink="/forgotpassword">Forgot Password?</a></span>

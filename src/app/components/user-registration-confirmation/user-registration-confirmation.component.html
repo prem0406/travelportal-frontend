@@ -1,8 +1,81 @@
-<h3>Registration Conformation Page:</h3>
+<div class="col">
+      <div class="card border-dark mb-3">
+          <div class="card-header">Ticket Confirmation Details</div>
+          <div class="card-body text-dark">
+              <div class="card-text">
+                  <div class="row">
+                      <div class="col-md-8 mb-3">
+                          <label>Name : <b>{{userData.firstName}} {{userData.lastName}}</b></label>
+                      </div>
+                      <div class="col-md-4 mb-3">
+                          <label>Business Unit : <b>{{userData.businessUnit}}</b></label>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-4 mb-3">
+                          <label>Title : <b>{{userData.title}}</b></label>
+                      </div>
+                      <div class="col-md-4 mb-3">
+                          <label>Email : <b>{{userData.email}}</b></label>
+                      </div>
+                      <div class="col-md-4 mb-3">
+                          <label>Telephone :
+                              <b>{{userData.telephone}}</b></label>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-4 mb-3">
+                          <label>Address 1 : <b>{{userData.address1}}</b></label>
+                      </div>
+                      <div class="col-md-4 mb-3">
+                          <label>Address 2 : <b>{{userData.address2}}</b></label>
+                      </div>
+                      <div class="col-md-4 mb-3">
+                          <label>City: <b>{{userData.city}}</b></label>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-4 mb-3">
+                          <label>State :
+                              <b>{{userData.state}}</b></label>
+                      </div>
+                      <div class="col-md-4 mb-3">
+                          <label>Zip : <b>{{userData.zip}}</b></label>
+                      </div>
+                      <div class="col-md-4 mb-3">
+                          <label>Country : <b>{{userData.country}}</b></label>
+                      </div>
+                  </div>
+  
+                  
+                  <div class="row">
+                      <div class="col-md-2 mb-3">
+                          
+                      </div>
+                      <div class="col-md-8 mb-3">
+                          <button class="btn btn-primary" (click)="printPage()">Print</button> 
+                          <button class="btn btn-secondary" (click)="homepage()">Got to Login Page</button>
+                      </div>
+                      <div class="col-md-2 mb-3">
+                          
+                      </div>
+                  </div>
+                  
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  
+
+
+
+
+<!-- <h3>Registration Conformation Page:</h3>
 <p> Thank You for Registring. The admin will contact you shortly with your username and password.</p>
  <p> FirstName : {{ userData.firstName }} <br>
        Last Name :{{userData.lastName}}<br>
-       BusinessUnit :{{userData.businessUnit}}<br>
+       Business Unit :{{userData.businessUnit}}<br>
        Title : {{ userData.title}}<br>
        Email : {{userData.email}}<br>
        Telephone : {{userData.telephone}}<br>
@@ -14,5 +87,5 @@
        Country :  {{userData.country}} <br>
  
        <button (click)="printPage()">print</button>
-       <button (click)="homepage()">Got to homepage </button>
-</p>
+       <button (click)="homepage()">Got to Login Page </button>
+</p> -->

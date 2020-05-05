@@ -17,6 +17,7 @@ export interface TicketRequest {
     upperBound: string,
     additionalDetails : string,
     status: string,
+    comment: string,
     dateCreated : Date,
     lastUpdated : Date
 }

@@ -1,4 +1,5 @@
 export interface StatusRto{
     ticketRequestId: number,
-    status: string
+    status: string,
+    comment: string
 }

@@ -4,12 +4,6 @@
         <div class="card-body text-dark">
             <div class="card-text" *ngIf="ticketRequest">
                 <div class="row">
-                    <!-- <div class="col-md-2 mb-3">
-                        <label>Request Id : <b>{{ticketRequest.ticketRequestId}}</b></label>
-                    </div>
-                    <div class="col-md-4 mb-3">
-                        <label>Submitted By : <b>{{ticketRequest.user.email}}</b></label>
-                    </div> -->
                     <div class="col-md-3 mb-3">
                         <label>Request Type : <b>{{ticketRequest.requestType}}</b></label>
                     </div>
@@ -72,7 +66,7 @@
                     </div>
                     <div class="col-md-8 mb-3">
                         <button class="btn btn-primary" (click)="printPage()">Print</button> 
-                        <button class="btn btn-secondary" (click)="homepage()">Go to Homepage</button>
+                        <button class="btn btn-secondary" (click)="homepage()">Ticket List</button>
                     </div>
                     <div class="col-md-2 mb-3">
                         
@@ -83,24 +77,4 @@
         </div>
     </div>
 </div>
-
-<!-- <h1 >Ticket Confirmation Details</h1>
-
- 
-    requestType: {{ticketData.requestType}}
-    priority:    {{ticketData.priority}}   
-    travelCity:   {{ticketData.travelCity}}  
-    fromCityLocation: {{ticketData.fromCityLocation}}
-    travelStartDate : {{ticketData.travelStartDate}} 
-    travelEndDate :  {{ticketData.travelEndDate}}  
-    passportNo :     {{ticketData.passportNo}}  
-    projectName :    {{ticketData.projectName}} 
-    expenseBourneBy: {{ticketData.expenseBourneBy}} 
-    travelApproverName: {{ticketData.travelApproverName}} 
-    expectedDuration :   {{ticketData.expectedDuration}} 
-    upperBound:          {{ticketData.upperBound}}       
-    additionalDetails :   {{ticketData.additionalDetails}} 
-    status:               {{ticketData.status}}           
-    dateCreated :         {{ticketData.dateCreated}}     
-    lastUpdated :         {{ticketData.lastUpdated}}      -->
 

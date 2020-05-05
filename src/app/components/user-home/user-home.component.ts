@@ -35,4 +35,8 @@ export class UserHomeComponent implements OnInit {
     this.router.navigate(['home',this.id,'ticket',ticket.ticketRequestId]);
   }
 
+  getDetails(ticket: TicketRequest){
+    this.router.navigate(['home','ticket',ticket.ticketRequestId]);
+  }
+
 }

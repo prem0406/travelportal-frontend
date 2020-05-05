@@ -16,15 +16,18 @@
         <td>{{ticket.status}}</td>
         <td>
 
-            <span *ngIf="ticket.status == 'SUBMITTED'; else notApplicable" class="edit" (click)="editTicket(ticket)">
+            <span *ngIf="ticket.status == 'SUBMITTED'" class="edit" (click)="editTicket(ticket)">
                 <i class="far fa-edit"></i>
             </span>
+            <span *ngIf="ticket.status == 'APPROVED'" class="edit" (click)="getDetails(ticket)">
+              <button class="btn btn-link">See Details</button>
+          </span>
 
         </td>
       </tr>
     </tbody>
   </table>
 
-  <ng-template #notApplicable>
+  <!-- <ng-template #notApplicable>
     <span>N/A</span>
-  </ng-template>
+  </ng-template> -->

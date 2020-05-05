@@ -64,6 +64,21 @@
                         <label>Last Updated : <b>{{ticketRequest.lastUpdated | date}}</b></label>
                     </div>
                 </div>
+                <div class="row">
+                    
+                    <div class="col-md-3 mb-3">
+                        <input type="file" (change)="onFileChanged($event)">
+
+                    </div>
+                    
+                    <div class="col-md-6 mb-3">
+                        <button type="button" class="btn btn-primary" (click)="onUpload()">Upload</button>
+                    </div>
+                    
+                </div>
+                <div style="color: red;" *ngIf=message>{{message}}</div>
+
+               
 
                 <form [formGroup]="ticketForm" (ngSubmit)="onFormSubmit()">
                     <div class="row">
@@ -82,6 +97,11 @@
                                 *ngIf="actionControl.touched && actionControl.errors?.required">
                                 This field is required
                             </div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <input type="text" class="form-control" id="upperBound"  formControlName= "comment" placeholder="Comments" 
+                            [ngClass]="getControlValidationClasses(commentControl)">
+
                         </div>
                         <div class="col-md-1 mb-3">
                             <button class="btn btn-primary" type="submit" [disabled] = "!ticketForm.valid"

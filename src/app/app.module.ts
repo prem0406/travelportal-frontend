@@ -27,6 +27,7 @@ import {NgxPaginationModule} from 'ngx-pagination';
 import {SortDirective} from './directives/sort.directive';
 import { CoronaComponent } from './components/corona/corona.component';
 import { ImageUploadComponent } from './components/image-upload/image-upload.component';
+import { TicketDetailComponent } from './components/ticket-detail/ticket-detail.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ImageUploadComponent } from './components/image-upload/image-upload.com
     TicketRequestConfirmationComponent,
     SortDirective,
     CoronaComponent,
-    ImageUploadComponent
+    ImageUploadComponent,
+    TicketDetailComponent
   ],
   imports: [
     BrowserModule,

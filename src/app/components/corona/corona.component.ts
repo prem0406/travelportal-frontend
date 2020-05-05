@@ -28,7 +28,7 @@ export class CoronaComponent implements OnInit {
     this._weather.dailyForecast(country)
       .subscribe((res: any) => {
        let end = res.length;
-       let days = 10;
+       let days = 30;
 
        this.selectedCountry = res[0].Country;
        
