@@ -6,13 +6,15 @@ import { API_URL } from '../app.constant';
 
 const AUTHENTICATED_USER:string = 'authenticateUser';
 const TOKEN: string= 'token';
+const USER_ID: string= 'userId';
+const ROLE: string= 'role';
 
 @Injectable({
   providedIn: 'root'
 })
 export class BasicLoginService {
-  userId: number;
-  role: string;
+  // userId: number;
+  // role: string;
 
   constructor(private http: HttpClient) { }
 
@@ -28,8 +30,10 @@ export class BasicLoginService {
           data => {
             sessionStorage.setItem(AUTHENTICATED_USER, username);
             sessionStorage.setItem(TOKEN, `Bearer ${data.token}`);
-            this.userId = data.id;
-            this.role = data.role;
+            sessionStorage.setItem(USER_ID,  data.id);
+            sessionStorage.setItem(ROLE, data.role);
+            // this.userId = data.id;
+            // this.role = data.role;
             return data;
           }
         )
@@ -37,15 +41,17 @@ export class BasicLoginService {
   }
 
   isLoggedIn(){
-
     let user = sessionStorage.getItem(AUTHENTICATED_USER);
     //console.log('USer.. ',user)
-    return !(user === null)
+    return !(user === null);
   }
 
   isUserLoggedIn() {
-    //console.log('Role...... ',this.role)
-    return this.isLoggedIn && this.role == 'USER';
+    // console.log('Role...... ',this.userId);
+    // console.log( 'role',this.role == 'USER');
+    //console.log('user',this.isLoggedIn() );
+    let role = sessionStorage.getItem(ROLE);
+    return this.isLoggedIn() && role == 'USER';
   }
 
   getAuthenticatedUser() {
@@ -58,7 +64,7 @@ export class BasicLoginService {
   }
 
   getLoggedUser(): number{
-    return this.userId;
+    return parseInt(sessionStorage.getItem(USER_ID));
   }
 
   logout(){

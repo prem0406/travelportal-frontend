@@ -9,13 +9,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class TicketRequestConfirmationComponent implements OnInit {
    userId:number;
-  ticketData: TicketRequest
+   ticketRequest: TicketRequest
   constructor(private ticketService : TicketRequestService,private router : Router,
     private route: ActivatedRoute) { }
  
   ngOnInit(): void {
     this.userId = this.route.snapshot.params['userId'];
-    this.ticketData= this.ticketService.getTicketData();
+    this.ticketRequest= this.ticketService.getTicketData();
   }
   printPage() {
     window.print();

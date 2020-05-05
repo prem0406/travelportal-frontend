@@ -1,22 +1,106 @@
-<h1 >Ticket Confirmation Details</h1>
-<p>
+<div class="col">
+    <div class="card border-dark mb-3">
+        <div class="card-header">Ticket Confirmation Details</div>
+        <div class="card-body text-dark">
+            <div class="card-text" *ngIf="ticketRequest">
+                <div class="row">
+                    <!-- <div class="col-md-2 mb-3">
+                        <label>Request Id : <b>{{ticketRequest.ticketRequestId}}</b></label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>Submitted By : <b>{{ticketRequest.user.email}}</b></label>
+                    </div> -->
+                    <div class="col-md-3 mb-3">
+                        <label>Request Type : <b>{{ticketRequest.requestType}}</b></label>
+                    </div>
+                    <div class="col-md-2 mb-3">
+                        <label>Priority : <b>{{ticketRequest.priority}}</b></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label>Travel City : <b>{{ticketRequest.travelCity}}</b></label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>From Location City : <b>{{ticketRequest.fromCityLocation}}</b></label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>Travel Start Date :
+                            <b>{{ticketRequest.travelStartDate | date}}</b></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label>Travel End Date : <b>{{ticketRequest.travelEndDate | date}}</b></label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>Passport No. : <b>{{ticketRequest.passportNo}}</b></label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>Expense Bourne By : <b>{{ticketRequest.expenseBourneBy}}</b></label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label>Travel Approver Name :
+                            <b>{{ticketRequest.travelApproverName}}</b></label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>Expected Duration : <b>{{ticketRequest.expectedDuration}}</b></label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>Upper Bound : <b>{{ticketRequest.upperBound}}</b></label>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label>Additional Details : <b>{{ticketRequest.additionalDetails}}</b></label>
+                    </div>
+                    <!-- <div class="col-md-4 mb-3">
+                        <label>Date Created : <b>{{ticketRequest.dateCreated | date}}</b></label>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label>Last Updated : <b>{{ticketRequest.lastUpdated | date}}</b></label>
+                    </div> -->
+                </div>
+
+                
+                <div class="row">
+                    <div class="col-md-2 mb-3">
+                        
+                    </div>
+                    <div class="col-md-8 mb-3">
+                        <button class="btn btn-primary" (click)="printPage()">Print</button> 
+                        <button class="btn btn-secondary" (click)="homepage()">Go to Homepage</button>
+                    </div>
+                    <div class="col-md-2 mb-3">
+                        
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <h1 >Ticket Confirmation Details</h1>
+
  
-    requestType: {{ticketData.requestType}} <br>
-    priority:    {{ticketData.priority}}    <br>
-    travelCity:   {{ticketData.travelCity}}   <br>
-    fromCityLocation: {{ticketData.fromCityLocation}} <br>
-    travelStartDate : {{ticketData.travelStartDate}}  <br>
-    travelEndDate :  {{ticketData.travelEndDate}}   <br>
-    passportNo :     {{ticketData.passportNo}}   <br>
-    projectName :    {{ticketData.projectName}}  <br>
-    expenseBourneBy: {{ticketData.expenseBourneBy}}  <br>
-    travelApproverName: {{ticketData.travelApproverName}}  <br>
-    expectedDuration :   {{ticketData.expectedDuration}}  <br>
-    upperBound:          {{ticketData.upperBound}}        <br>
-    additionalDetails :   {{ticketData.additionalDetails}}  <br>
-    status:               {{ticketData.status}}            <br>
-    dateCreated :         {{ticketData.dateCreated}}      <br>
-    lastUpdated :         {{ticketData.lastUpdated}}      <br>
-</p>
-<button (click)="printPage()">Print</button>  
- <button (click)="homepage()">Go to Homepage</button>
+    requestType: {{ticketData.requestType}}
+    priority:    {{ticketData.priority}}   
+    travelCity:   {{ticketData.travelCity}}  
+    fromCityLocation: {{ticketData.fromCityLocation}}
+    travelStartDate : {{ticketData.travelStartDate}} 
+    travelEndDate :  {{ticketData.travelEndDate}}  
+    passportNo :     {{ticketData.passportNo}}  
+    projectName :    {{ticketData.projectName}} 
+    expenseBourneBy: {{ticketData.expenseBourneBy}} 
+    travelApproverName: {{ticketData.travelApproverName}} 
+    expectedDuration :   {{ticketData.expectedDuration}} 
+    upperBound:          {{ticketData.upperBound}}       
+    additionalDetails :   {{ticketData.additionalDetails}} 
+    status:               {{ticketData.status}}           
+    dateCreated :         {{ticketData.dateCreated}}     
+    lastUpdated :         {{ticketData.lastUpdated}}      -->
+
