@@ -1,3 +1,6 @@
+<div class="row">
+  <input type="text" class="form-control" placeholder="Search Text" [(ngModel)]="searchText">
+</div>
 <table class="table">
     <thead>
       <tr>
@@ -9,7 +12,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let ticket of ticketRequests">
+      <tr *ngFor="let ticket of ticketRequests | filter:searchText | paginate: {itemsPerPage: 5, currentPage: page}">
         <th scope="row">{{ticket.ticketRequestId}}</th>
         <td>{{ticket.requestType}}</td>
         <td>{{ticket.dateCreated | date}}</td>
@@ -27,7 +30,4 @@
       </tr>
     </tbody>
   </table>
-
-  <!-- <ng-template #notApplicable>
-    <span>N/A</span>
-  </ng-template> -->
+  <pagination-controls class= "pageno" (pageChange)="page = $event"></pagination-controls>

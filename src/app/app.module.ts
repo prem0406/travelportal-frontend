@@ -7,7 +7,6 @@ import { LoginComponent } from './components/login/login.component';
 import { ErrorComponent } from './components/error/error.component';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { MenuComponent } from './components/menu/menu.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { UserHomeComponent } from './components/user-home/user-home.component';
 import { NewticketrequestComponent } from './components/newticketrequest/newticketrequest.component';
@@ -35,7 +34,6 @@ import { TicketDetailComponent } from './components/ticket-detail/ticket-detail.
     LoginComponent,
     ErrorComponent,
     MenuComponent,
-    FooterComponent,
     LogoutComponent,
     UserHomeComponent,
     NewticketrequestComponent,

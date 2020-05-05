@@ -1,12 +1,26 @@
-<label>Country</label>
-<select (change)= "createChart($event.target.value)">
+<label>Choose Country where you want to travel:</label>
+<select class="custom-select" (change)= "createChart($event.target.value)">
   <option *ngFor="let country of countries" value="{{country.Slug}}"
   [attr.selected]="country.Slug=='india' ? true : null">
     {{country.Country}}
   </option>
 </select>
-
+<br>
 <h3>Status of COVID-19 in {{selectedCountry}}</h3>
+
+
+<div class="box">
+  <div class="blue"></div> <span>TOTAL COVID19 CASES</span>
+</div>
+<div class="box">
+<div class="green"></div> <span>TOTAL RECOVERED</span>
+  
+</div>
+<div class="box">
+<div class="red"></div> <span>TOTAL DEATHs</span>
+  
+</div>
+
 <div class="chart" *ngIf="chart">
   <canvas id="canvas">{{ chart }}</canvas>
 </div>

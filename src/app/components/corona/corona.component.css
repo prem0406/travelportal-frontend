@@ -1,0 +1,33 @@
+.blue, .green, .red{
+    border: solid 1px black;
+    height: 30px;
+    width: 60px;
+    margin-right: 5px;
+    
+}
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
+
+.red {
+    background-color: red;
+}
+
+.box {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+}
+
+.chart {
+    height: 500px;
+}
+
+.alt-grid .container { /* assumes that the .alt-grid is on the body or html tag*/
+    width:100%;
+    max-width:1600px;
+}

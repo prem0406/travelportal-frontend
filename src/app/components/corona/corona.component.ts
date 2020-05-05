@@ -53,13 +53,13 @@ export class CoronaComponent implements OnInit {
             datasets: [
               {
                 data: confirmed,
-                borderColor: '#3cba9f',
+                borderColor: '#0000ff',
                 label: 'Confirmed Cases',
                 fill: false
               },
               {
                 data: recovered,
-                borderColor: '#ffcc00',
+                borderColor: '#008000',
                 label: 'Recoverd Cases',
                 fill: false
               },

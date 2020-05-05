@@ -11,6 +11,8 @@ import { TicketRequest } from 'src/app/models/ticket-request.interface';
 export class UserHomeComponent implements OnInit {
   ticketRequests : TicketRequest[];
   id: number;
+  searchText: string;
+  page: number;
   
 
   constructor(private userDataService: UserDataService,
