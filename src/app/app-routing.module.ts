@@ -15,6 +15,7 @@ import { AdminLoginComponent } from './components/admin-login/admin-login.compon
 import { AdminHomeComponent } from './components/admin-home/admin-home.component';
 import { AdminTicketReviewComponent } from './components/admin-ticket-review/admin-ticket-review.component';
 import { TicketRequestConfirmationComponent } from './components/ticket-request-confirmation/ticket-request-confirmation.component';
+import { CoronaComponent } from './components/corona/corona.component';
 
 
 const routes: Routes = [
@@ -32,6 +33,7 @@ const routes: Routes = [
   {path:'home/:userId/ticketconfirmation', component: TicketRequestConfirmationComponent,canActivate: [RouteGuardService]},
   {path: 'forgotpassword', component: ForgotPasswordComponent},
   {path: 'home/:userId/passwordchange', component: PasswordChangeComponent, canActivate: [RouteGuardService]},
+  {path: 'corona', component: CoronaComponent},
   {path: 'error', component: ErrorComponent},
 
   {path: '**', component: ErrorComponent}

@@ -1,0 +1,12 @@
+<label>Country</label>
+<select (change)= "createChart($event.target.value)">
+  <option *ngFor="let country of countries" value="{{country.Slug}}"
+  [attr.selected]="country.Slug=='india' ? true : null">
+    {{country.Country}}
+  </option>
+</select>
+
+<h3>Status of COVID-19 in {{selectedCountry}}</h3>
+<div class="chart" *ngIf="chart">
+  <canvas id="canvas">{{ chart }}</canvas>
+</div>

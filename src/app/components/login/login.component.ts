@@ -39,10 +39,8 @@ export class LoginComponent implements OnInit {
     this.basicLoginService.authenticate(username, password)
     .subscribe(
       data => {
-        // console.log(data);
-        this.router.navigate(['home',data.id]);
+        this.router.navigate(['corona']);
         this.invalidLogin = false;
-        // this.menuComponent.changeLoginStatus();
       },
       error => {
         if(error.status == 0){
