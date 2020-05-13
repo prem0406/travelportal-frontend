@@ -102,10 +102,12 @@ export class AdminTicketReviewComponent implements OnInit {
       this.fileService.uploadFile(this.ticketId,uploadImageData)
       .subscribe((response) => {
         if (response.status === 200) {
-          this.message = 'Image uploaded successfully';
+          this.message = 'File uploaded successfully';
         } else {
-          this.message = 'Image not uploaded successfully';
+          this.message = 'File not uploaded successfully';
         }
+      }, error => {this.message = 'Error while Uploading File';
+        console.log(error);
       }
       );
 
