@@ -13,8 +13,6 @@ const ROLE: string= 'role';
   providedIn: 'root'
 })
 export class BasicLoginService {
-  // userId: number;
-  // role: string;
 
   constructor(private http: HttpClient) { }
 
@@ -42,7 +40,6 @@ export class BasicLoginService {
 
   isLoggedIn(){
     let user = sessionStorage.getItem(AUTHENTICATED_USER);
-    //console.log('USer.. ',user)
     return !(user === null);
   }
 
@@ -51,7 +48,7 @@ export class BasicLoginService {
     // console.log( 'role',this.role == 'USER');
     //console.log('user',this.isLoggedIn() );
     let role = sessionStorage.getItem(ROLE);
-    return this.isLoggedIn() && role == 'USER';
+    return this.isLoggedIn() && role == 'ROLE_USER';
   }
 
   getAuthenticatedUser() {

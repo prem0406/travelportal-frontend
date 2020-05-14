@@ -33,9 +33,8 @@ export class PasswordChangeComponent implements OnInit {
 
 
   onFormSubmit(){
-    console.log('clicked')
+
     const {password, confirmPassword} = this.passwordForm.value;
-    console.log(password);
     //if both passwords are same then
     if(password != confirmPassword){
       this.errorMessage= 'New Password and Confirm Password must be same'
@@ -49,7 +48,6 @@ export class PasswordChangeComponent implements OnInit {
   }
 
   handleSuccess(data: any){
-    console.log(data.message);
     this.errorMessage = "Password Changed Successfully!"
   }
 

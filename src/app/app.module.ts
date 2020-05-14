@@ -25,7 +25,6 @@ import {Ng2SearchPipeModule} from 'ng2-search-filter';
 import {NgxPaginationModule} from 'ngx-pagination';
 import {SortDirective} from './directives/sort.directive';
 import { CoronaComponent } from './components/corona/corona.component';
-import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 import { TicketDetailComponent } from './components/ticket-detail/ticket-detail.component';
 
 @NgModule({
@@ -48,7 +47,6 @@ import { TicketDetailComponent } from './components/ticket-detail/ticket-detail.
     TicketRequestConfirmationComponent,
     SortDirective,
     CoronaComponent,
-    ImageUploadComponent,
     TicketDetailComponent
   ],
   imports: [

@@ -38,9 +38,7 @@ export class AdminLoginComponent implements OnInit {
     this.basicLoginService.authenticate(username, password)
     .subscribe(
       data => {
-        this.router.navigate(['admin',data.id]);
-        this.invalidLogin = false;
-        // this.menuComponent.changeLoginStatus();
+        this.checkForAdminRole(data);
       },
       error => {
         if(error.status == 0){
@@ -52,6 +50,22 @@ export class AdminLoginComponent implements OnInit {
       }
     )
     
+  }
+
+  //A common BasicLoginService is used for both User and Admin Login, So It is necessary to make 
+  //sure if it ADMIN who is going to log in or not
+  checkForAdminRole(data: any){
+    if(data.role === 'ROLE_ADMIN'){
+      this.router.navigate(['admin',data.id]);
+      this.invalidLogin = false;
+    } else {
+      this.invalidLogin = true;
+      this.errorMessage = 'You donot have ADMIN privileges';
+
+      // logout method is in BasicLoginService which removes token from SessionStorage.
+      // as SessionStorage is already set with token, username and role in that service
+      this.basicLoginService.logout();
+    }
   }
 
   getControlValidationClasses(control: FormControl) {

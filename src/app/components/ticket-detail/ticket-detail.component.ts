@@ -36,7 +36,8 @@ export class TicketDetailComponent implements OnInit {
 
 
   getImage() {
-    //Make a call to Sprinf Boot to get the Image Bytes.
+
+    //Make a call to Spring Boot to get the Image Bytes.
     this.fileService.getFile(this.ticketId)
       .subscribe(
         res => {
@@ -47,16 +48,13 @@ export class TicketDetailComponent implements OnInit {
           this.fileName = this.retrieveResonse.name;
 
           this.retrievedImage = `data:${this.type};base64,` + this.base64Data;
-          // this.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data;
-
-          console.log(this.retrieveResonse.type)
-          console.log('typeof Image: ', typeof this.retrievedImage)
-          // this.sanitizer.bypassSecurityTrustStyle();
         },
         error => this.errorMessage = "No Attachements"
       );
   }
 
+  //separate function and sanitizer is user to solve unsafe url problem. Earlier, this.retrievedImage was
+  //directly used in html but that was giving error of unsafe url
   getFile(){
     return this.sanitizer.bypassSecurityTrustStyle(this.retrievedImage);
   }

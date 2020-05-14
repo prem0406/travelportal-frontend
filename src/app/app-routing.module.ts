@@ -16,29 +16,26 @@ import { AdminHomeComponent } from './components/admin-home/admin-home.component
 import { AdminTicketReviewComponent } from './components/admin-ticket-review/admin-ticket-review.component';
 import { TicketRequestConfirmationComponent } from './components/ticket-request-confirmation/ticket-request-confirmation.component';
 import { CoronaComponent } from './components/corona/corona.component';
-import { ImageUploadComponent } from './components/image-upload/image-upload.component';
 import { TicketDetailComponent } from './components/ticket-detail/ticket-detail.component';
 
 
 const routes: Routes = [
   {path: '', component: WelcomeComponent, pathMatch: 'full'},
-  // {path: 'welcome', component: WelcomeComponent},
   {path: 'login', component: LoginComponent},
   {path: 'admin/login', component: AdminLoginComponent},
   {path: 'logout', component: LogoutComponent, canActivate: [RouteGuardService]},
   {path: 'home/:id', component: UserHomeComponent, canActivate: [RouteGuardService]},
   {path: 'admin/:adminId', component: AdminHomeComponent, canActivate: [RouteGuardService]},
-  {path: 'admin/:adminId/tickets/:ticketId', component: AdminTicketReviewComponent},
+  {path: 'admin/:adminId/tickets/:ticketId', component: AdminTicketReviewComponent, canActivate: [RouteGuardService]},
   {path: 'registration', component: UserRegistrationComponent},
   {path: 'registration/confirmation', component: UserRegistrationConfirmationComponent},
   {path: 'home/:userId/ticket/:ticketId', component: NewticketrequestComponent, canActivate: [RouteGuardService]},
   {path: 'home/ticket/:ticketId', component: TicketDetailComponent, canActivate: [RouteGuardService]},
-  {path:'home/:userId/ticketconfirmation', component: TicketRequestConfirmationComponent,canActivate: [RouteGuardService]},
+  {path: 'home/:userId/ticketconfirmation', component: TicketRequestConfirmationComponent,canActivate: [RouteGuardService]},
   {path: 'forgotpassword', component: ForgotPasswordComponent},
   {path: 'home/:userId/passwordchange', component: PasswordChangeComponent, canActivate: [RouteGuardService]},
   {path: 'corona', component: CoronaComponent},
   {path: 'error', component: ErrorComponent},
-  {path: 'image', component: ImageUploadComponent},
 
 
   {path: '**', component: ErrorComponent}

@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { BasicLoginService } from 'src/app/services/basic-login.service';
 import { Router } from '@angular/router';
-import { MenuComponent } from '../menu/menu.component';
-
 
 @Component({
   selector: 'app-login',

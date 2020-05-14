@@ -29,8 +29,8 @@ export class UserHomeComponent implements OnInit {
 
 
   handleErrorResponse(error:any) {
-    
     console.log('Error getting user tickes ', error);
+    this.router.navigate(['error']);
   }
 
   editTicket(ticket: TicketRequest){
